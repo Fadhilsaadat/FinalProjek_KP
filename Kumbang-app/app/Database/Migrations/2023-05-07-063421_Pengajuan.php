@@ -34,13 +34,14 @@ class Pengajuan extends Migration
             ],
             'Tempat_yang_dipakai' => [
                 'type' => 'ENUM',
-                'constraint' => [ 'Ruang Spare Room 1', 'Ruang Spare Room 2', 'Kelas XI.1', 'Kelas XI.2', 'Kelas XI.3',
-                'Kelas XI.4', 'Kelas XI.5', 'Kelas XII.1', 'Kelas XII.2', 'Kelas XII.3', 'Kelas XII.4',
-                'Kelas XII.5', 'Teater', 'Ruang OSIS/Wakasis', 'Ruang Laboratorium', 'Laboratorium Kimia',
+                'constraint' => [ 'Ruang Spare Room 1', 'Ruang Spare Room 2', 'Atrium SD', 'Kelas X.1', 'Kelas X.2', 'Kelas X.3', 'Kelas X.4',
+                'Kelas X.5', 'Kelas X.6', 'Kelas X.7', 'Kelas XI.1', 'Kelas XI.2', 'Kelas XI.3',
+                'Kelas XI.4', 'Kelas XI.5','Kelas XI.6','Kelas XI.7', 'Kelas XII.1', 'Kelas XII.2', 'Kelas XII.3', 'Kelas XII.4',
+                'Kelas XII.5','Kelas XII.6','Kelas XII.7', 'Teater', 'Ruang OSIS/Wakasis', 'Ruang Laboratorium', 'Laboratorium Kimia',
                 'Laboratorium Fisika', 'Laboratorium Komputer', 'Laboratorium Biologi', 'Laboratorium Bahasa',
                 'Ruang Tamu', 'IT, Multimedia & Marketing', 'Ruang UKS', 'Ruang Yayasan', 'Ruang Guru',
                 'Ruang Kepsek', 'Ruang Wakakur', 'Ruang Wakasar', 'Ruang Serbaguna SMA', 'Ruang Kuliner',
-                'Ruang musik', 'Perpustakaan', 'Kantin', 'Lapangan Badminton', 'Lapangan Tenis Meja',
+                'Ruang Musik', 'Perpustakaan', 'Kantin', 'Lapangan Badminton', 'Lapangan Tenis Meja',
                 'Kolam Renang', 'Lapangan Basket', 'Lapangan Voli', 'Lapangan Tenis', 'Lapangan Senam',
                 'Lapangan Futsal']
             ],
@@ -54,7 +55,7 @@ class Pengajuan extends Migration
             ],
             'status' => [
                 'type' => 'ENUM',
-                'constraint' => ['Menunggu validasi', 'Telah disetujui', 'Dibatalkan', 'Ditolak'],
+                'constraint' => ['Menunggu validasi', 'Disetujui', 'Dibatalkan', 'Ditolak'],
                 'default' => 'Menunggu validasi'
             ]
         ]);

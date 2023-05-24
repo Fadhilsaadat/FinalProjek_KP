@@ -55,7 +55,7 @@
         <select name="status" class="form-control">
           <?php if (in_groups("admin")) { ?>
 
-            <option value="Telah disetujui" <?= $pengajuan['status'] == 'Telah disetujui' ? 'selected' : '' ?>>Telah disetujui</option>
+            <option value="Telah disetujui" <?= $pengajuan['status'] == 'Disetujui' ? 'selected' : '' ?>>Telah disetujui</option>
             <option value="Ditolak" <?= $pengajuan['status'] == 'Ditolak' ? 'selected' : '' ?>>Ditolak</option>
           <?php } ?>
 

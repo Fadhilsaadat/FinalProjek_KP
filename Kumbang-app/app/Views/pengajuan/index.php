@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css" rel='stylesheet' type='text/css'>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
     .dt-buttons {
         width: 100%;
@@ -84,13 +84,14 @@
                             <select name="Tempat_yang_dipakai" id="Tempat_yang_dipakai" class="form-control">
                                 <?php
                                     $tempatOptions = [
-                                      'Ruang Spare Room 1', 'Ruang Spare Room 2', 'Kelas XI.1', 'Kelas XI.2', 'Kelas XI.3',
-                                      'Kelas XI.4', 'Kelas XI.5', 'Kelas XII.1', 'Kelas XII.2', 'Kelas XII.3', 'Kelas XII.4',
-                                      'Kelas XII.5', 'Teater', 'Ruang OSIS/Wakasis', 'Ruang Laboratorium', 'Laboratorium Kimia',
+                                      'Ruang Spare Room 1', 'Ruang Spare Room 2','Atrium SD', 'Kelas X.1', 'Kelas X.2', 'Kelas X.3', 'Kelas X.4',
+                                      'Kelas X.5', 'Kelas X.6', 'Kelas X.7', 'Kelas XI.1', 'Kelas XI.2', 'Kelas XI.3',
+                                      'Kelas XI.4', 'Kelas XI.5','Kelas XI.6','Kelas XI.7', 'Kelas XII.1', 'Kelas XII.2', 'Kelas XII.3', 'Kelas XII.4',
+                                      'Kelas XII.5','Kelas XII.6','Kelas XII.7', 'Teater', 'Ruang OSIS/Wakasis', 'Ruang Laboratorium', 'Laboratorium Kimia',
                                       'Laboratorium Fisika', 'Laboratorium Komputer', 'Laboratorium Biologi', 'Laboratorium Bahasa',
                                       'Ruang Tamu', 'IT, Multimedia & Marketing', 'Ruang UKS', 'Ruang Yayasan', 'Ruang Guru',
                                       'Ruang Kepsek', 'Ruang Wakakur', 'Ruang Wakasar', 'Ruang Serbaguna SMA', 'Ruang Kuliner',
-                                      'Ruang musik', 'Perpustakaan', 'Kantin', 'Lapangan Badminton', 'Lapangan Tenis Meja',
+                                      'Ruang Musik', 'Perpustakaan', 'Kantin', 'Lapangan Badminton', 'Lapangan Tenis Meja',
                                       'Kolam Renang', 'Lapangan Basket', 'Lapangan Voli', 'Lapangan Tenis', 'Lapangan Senam',
                                       'Lapangan Futsal'
                                     ];
@@ -144,10 +145,16 @@
                         <td><?= $row['kegunaan'] ?></td>
                         <td><?= $row['status'] ?></td>
                         <td>
-                            <a href="<?= base_url('pengajuan/edit/' . $row['id_pengajuan']) ?>" class="btn btn-primary btn-sm">
-                                <i class="bi bi-pencil-fill"></i> Edit
-                            </a>
-                        </td>
+    <div style="display: flex; align-items: center;">
+        <a href="<?= base_url('pengajuan/edit/' . $row['id_pengajuan']) ?>" class="btn btn-primary btn-sm">
+            <i class="bi bi-pencil-fill"></i> Edit
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=6289506754067&text=Kepada%2C%0A%5BPenanggung%20Jawab%5D%0A%0ADengan%20hormat%2C%0A%0ASaya%20mengajukan%20permohonan%20untuk%20melaksanakan%20kegiatan%20dengan%20rincian%20sebagai%20berikut%3A%0A%0APenanggung%20Jawab%3A%20%5BNama%20Penanggung%20Jawab%5D%0AOrang%20Terlibat%3A%20%5BDaftar%20Nama%20Orang%20Terlibat%5D%0AHari%20Tanggal%3A%20%5BHari%20Tanggal%5D%0AWaktu%20Awal%3A%20%5BWaktu%20Awal%5D%0AWaktu%20Akhir%3A%20%5BWaktu%20Akhir%5D%0ATempat%20yang%20Dipakai%3A%20%5BTempat%20yang%20dipakai%5D%0APeralatan%3A%20%5BPeralatan%5D%0AKegunaan%3A%20%5BKegunaan%5D%0AKegiatan%20ini%20penting%20untuk%20%5Bjelaskan%20alasan%20atau%20manfaat%20kegiatan%5D.%20Kami%20telah%20menyiapkan%20segala%20sesuatu%20dengan%20matang%2C%20termasuk%20peralatan%20dan%20persiapan%20lainnya." style="margin-left: 10px;">
+            <i class="fa fa-whatsapp" style="font-size: 36px; color: green;"></i>
+        </a>
+    </div>
+</td>
+
                     </tr>
                 <?php $i++;
                 endforeach; ?>
