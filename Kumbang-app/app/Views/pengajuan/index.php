@@ -149,9 +149,11 @@
         <a href="<?= base_url('pengajuan/edit/' . $row['id_pengajuan']) ?>" class="btn btn-primary btn-sm">
             <i class="bi bi-pencil-fill"></i> Edit
         </a>
+        <?php if (in_groups('user')) { ?>
         <a href="https://api.whatsapp.com/send?phone=6289506754067&text=Kepada%2C%0A%5BPenanggung%20Jawab%5D%0A%0ADengan%20hormat%2C%0A%0ASaya%20mengajukan%20permohonan%20untuk%20melaksanakan%20kegiatan%20dengan%20rincian%20sebagai%20berikut%3A%0A%0APenanggung%20Jawab%3A%20%5BNama%20Penanggung%20Jawab%5D%0AOrang%20Terlibat%3A%20%5BDaftar%20Nama%20Orang%20Terlibat%5D%0AHari%20Tanggal%3A%20%5BHari%20Tanggal%5D%0AWaktu%20Awal%3A%20%5BWaktu%20Awal%5D%0AWaktu%20Akhir%3A%20%5BWaktu%20Akhir%5D%0ATempat%20yang%20Dipakai%3A%20%5BTempat%20yang%20dipakai%5D%0APeralatan%3A%20%5BPeralatan%5D%0AKegunaan%3A%20%5BKegunaan%5D%0AKegiatan%20ini%20penting%20untuk%20%5Bjelaskan%20alasan%20atau%20manfaat%20kegiatan%5D.%20Kami%20telah%20menyiapkan%20segala%20sesuatu%20dengan%20matang%2C%20termasuk%20peralatan%20dan%20persiapan%20lainnya." style="margin-left: 10px;">
             <i class="fa fa-whatsapp" style="font-size: 36px; color: green;"></i>
         </a>
+        <?php }; ?>
     </div>
 </td>
 
