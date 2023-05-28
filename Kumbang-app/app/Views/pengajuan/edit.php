@@ -54,7 +54,6 @@
         <label>Status</label>
         <select name="status" class="form-control">
           <?php if (in_groups("admin")) { ?>
-
             <option value="Telah disetujui" <?= $pengajuan['status'] == 'Disetujui' ? 'selected' : '' ?>>Telah disetujui</option>
             <option value="Ditolak" <?= $pengajuan['status'] == 'Ditolak' ? 'selected' : '' ?>>Ditolak</option>
           <?php } ?>
@@ -64,7 +63,7 @@
           <?php } ?>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary">Simpan</button>
+      <button type="submit" class="btn btn-primary" id="simpan-button">Simpan</button>
       </form>
     </div>
   </div>
@@ -74,4 +73,18 @@
 <?= $this->section('script') ?>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<script>
+  document.getElementById('simpan-button').addEventListener('click', function(e) {
+    var statusSelect = document.querySelector('select[name="status"]');
+    var selectedStatus = statusSelect.options[statusSelect.selectedIndex].value;
+    
+    if (selectedStatus === 'Dibatalkan' && <?= in_groups('user') ? 'true' : 'false' ?>) {
+      e.preventDefault();
+      if (confirm('Anda yakin ingin mengajukan pembatalan?')) {
+        alert('Pembatalan diajukan.');
+        document.querySelector('form').submit();
+      }
+    }
+  });
+</script>
 <?= $this->endSection() ?>

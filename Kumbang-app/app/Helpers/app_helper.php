@@ -40,3 +40,39 @@ if (!function_exists('is_uuidvalid')) {
       '[0-9a-f]{4}\-?[0-9a-f]{12}\}?$/i', $uuid) === 1;
   }
 }
+
+
+if (!function_exists('templateEmail')) {
+  function templateEmail($nama = '', $isi = '')
+  {
+      // $konten = '<h4><strong>Halo '.$nama.',</strong></h4>';
+      $konten = '';
+      $konten .= $isi;
+      $konten .= '<br> <br> <strong>Regard,<strong/><br> <strong>OrbitaLIMS Balai Besar Keramik
+      <strong/>';
+      return $konten;
+  }
+}
+
+if (!function_exists('sendingEmail')) {
+  function sendingEmail($to = '', $subject = '', $messages = '')
+  {
+      $email = \Config\Services::email();
+
+      $email->setFrom('padildummy1@gmail.com', 'Pengajuan Admin');
+      $email->setTo($to);
+    
+      $email->setSubject($subject);
+     
+
+      $email->setMessage($messages);
+      // dd($email->send());
+      if (!$email->send()) {
+          $error = $email->printDebugger();
+          // 
+      } else {
+          $error = '';
+      }
+    } 
+   
+}

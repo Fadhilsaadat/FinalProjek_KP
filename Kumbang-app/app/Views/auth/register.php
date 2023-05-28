@@ -51,6 +51,15 @@
                   </div>
 
                   <div class="form-outline mb-3">
+                    <input type="text" placeholder="Masukkan Email" name="email" class="form-control form-control-lg fs-6 <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" value="<?= old('email') ?>" />
+                    <div class="invalid-feedback">
+                      <?= session('errors.email') ?>
+                    </div>
+                  </div>
+
+
+
+                  <div class="form-outline mb-3">
                     <input autocomplete="new-password" type="tel" placeholder="Masukkan nomor telepon" name="username" class="form-control form-control-lg fs-6 <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" value="<?= old('username') ?>" />
                     <div class="invalid-feedback">
                       <?= session('errors.username') ?>

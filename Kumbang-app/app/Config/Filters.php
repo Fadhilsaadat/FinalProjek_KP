@@ -24,6 +24,9 @@ class Filters extends BaseConfig
         'login'      => \Myth\Auth\Filters\LoginFilter::class,
         'role'       => \Myth\Auth\Filters\RoleFilter::class,
         'permission' => \Myth\Auth\Filters\PermissionFilter::class,
+        // 'publicaccess' => \App\Filters\PublicAccessFilter::class,
+        // 'public'        => \App\Filters\PublicAccessFilter::class, // Tambahkan baris ini
+
     ];
 
     /**
@@ -32,7 +35,7 @@ class Filters extends BaseConfig
      */
     public array $globals = [
         'before' => [
-            'login',
+            // 'login',
         ],
         'after' => [
             'toolbar',
@@ -61,5 +64,8 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'login' => ['before' => ['PengajuanController']],
+    ];
+    // 'login' => ['before' => ['PengajuanController']],
 }

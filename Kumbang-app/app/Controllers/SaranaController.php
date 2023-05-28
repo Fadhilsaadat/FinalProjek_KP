@@ -14,13 +14,20 @@ class SaranaController extends Controller
         $this->mRequest = service("request");
     }
 
+    // public function index()
+    // {
+    //     $model = new SaranaModel();
+    //     $data['sarana'] = $model->findAll();
+    //     $data['title'] = 'Sarana & Prasarana';
+    //     return view('sarana/index', $data);
+    // }
+
     public function index()
     {
-        $model = new SaranaModel();
-        $data['sarana'] = $model->findAll();
         $data['title'] = 'Sarana & Prasarana';
         return view('sarana/index', $data);
     }
+
 
     public function create()
     {

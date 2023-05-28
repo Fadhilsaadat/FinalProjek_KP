@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Pengajuan;
+use CodeIgniter\Database\Query;
+use CodeIgniter\Email\Email;
 
 class PengajuanController extends BaseController
 {
@@ -152,11 +154,26 @@ class PengajuanController extends BaseController
             'Tempat_yang_dipakai' => $this->request->getPost('Tempat_yang_dipakai'),
             'peralatan' => $this->request->getPost('peralatan'),
             'kegunaan' => $this->request->getPost('kegunaan'),
-            'status' => $this->request->getPost('status') ?: 'Menunggu validasi', // set default value to "Menunggu validasi" if status is not provided
+            'status' => $this->request->getPost('status') ?$this->request->getPost('status'): 'Menunggu validasi', // set default value to "Menunggu validasi" if status is not provided
         ];
 
         $model->update($id, $data);
 
+        $pengajuan = $model->find($id);
+$users = $this->db->query("SELECT *
+FROM users u WHERE u.id='" . $pengajuan['user_id'] . "'")->getRow();
+// dd($users->email);
+
+        if ($this->request->getPost('status') == 'Telah disetujui'){
+
+     
+
+		sendingEmail($users->email, 'Permintaan Pengajuan', 'Permintaan Pengajuan Anda Telah disetujui');
+    
+        }else{
+		sendingEmail($users->email, 'Permintaan Pengajuan', 'Permintaan Pengajuan Anda Telah ditolak');
+
+        }
         return redirect()->to('/pengajuan');
     }
 

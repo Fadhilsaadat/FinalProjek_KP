@@ -31,22 +31,12 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->group('', ['filter' => 'login'], function ($routes) {
-    $routes->get('/', 'DashboardController::index');
-});
+$routes->get('/', 'DashboardController::index');
 $routes->group('dashboard', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'DashboardController::index');
 });
-$routes->group('sarana', ['namespace' => 'App\Controllers'], function ($routes) {
-    $routes->get('/', 'SaranaController::index');
-    $routes->get('create', 'SaranaController::create');
-    $routes->post('store', 'SaranaController::store');
-    $routes->get('edit/(:num)', 'SaranaController::edit/$1');
-    $routes->post('update/(:num)', 'SaranaController::update/$1');
-    $routes->get('delete/(:num)', 'SaranaController::delete/$1');
-});
 
-$routes->group('pengajuan', ['namespace' => 'App\Controllers'], function ($routes) {
+$routes->group('pengajuan', ['filter' => 'login'], function ($routes) {
     $routes->get('/', 'PengajuanController::index');
     $routes->get('create', 'PengajuanController::create');
     $routes->post('store', 'PengajuanController::store');
@@ -54,6 +44,40 @@ $routes->group('pengajuan', ['namespace' => 'App\Controllers'], function ($route
     $routes->post('update/(:num)', 'PengajuanController::update/$1');
     $routes->get('delete/(:num)', 'PengajuanController::delete/$1');
 });
+
+$routes->group('sarana', ['namespace' => 'App\Controllers', 'filter' => 'login'], function ($routes) {
+    $routes->get('/', 'SaranaController::index');
+});
+
+// $routes->group('sarana', ['namespace' => 'App\Controllers'], function ($routes) {
+// $routes->get('/', 'SaranaController::index');
+// });
+// $routes->group('', ['filter' => 'login'], function ($routes) {
+//     $routes->get('/', 'DashboardController::index');
+// });
+
+
+                                                                                    
+// $routes->group('sarana', ['namespace' => 'App\Controllers'], function ($routes) {
+//     $routes->get('/', 'SaranaController::index');
+//     $routes->get('create', 'SaranaController::create');
+//     $routes->post('store', 'SaranaController::store');
+//     $routes->get('edit/(:num)', 'SaranaController::edit/$1');
+//     $routes->post('update/(:num)', 'SaranaController::update/$1');
+//     $routes->get('delete/(:num)', 'SaranaController::delete/$1');
+// });
+
+// $routes->get('/sarana', 'Sidebar::sarana');
+
+
+// $routes->group('pengajuan', ['namespace' => 'App\Controllers'], function ($routes) {
+//     $routes->get('/', 'PengajuanController::index');
+//     $routes->get('create', 'PengajuanController::create');
+//     $routes->post('store', 'PengajuanController::store');
+//     $routes->get('edit/(:num)', 'PengajuanController::edit/$1');
+//     $routes->post('update/(:num)', 'PengajuanController::update/$1');
+//     $routes->get('delete/(:num)', 'PengajuanController::delete/$1');
+// });
 
 // $routes->setAutoRoute(true);
 
